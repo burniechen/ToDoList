@@ -1,0 +1,60 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#myInput{
+    border: none;
+    background: #ffffff;
+    border-radius: 16px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin: 0 4px;
+    padding: 4px 4px 4px 16px;
+}
+
+button {
+    font-size: 16px;
+    font-family: '微軟正黑體';
+    padding: 4px 8px;
+    margin: 0 4px;
+    color: #ffffff;
+    border-radius: 16px;
+}
+.btn_submit {
+    border: 1px solid #005AB5;
+    background: #0072E3;
+}
+.btn_cancel {
+    border: 1px solid #272727;
+    background: #6C6C6C;
+}
+.btn_finish {
+    border: 1px solid #01814A;
+    background: #02C874;
+}
+.btn_delete {
+    border: 1px solid #AE0000;
+    background: #EA0000;
+}
+
+.container article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    padding-left: 16px;
+}
+
+li {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin: 0 4px;
+    padding: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

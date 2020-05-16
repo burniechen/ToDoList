@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import '../css/todolist.css'
 
 let newInput
 
@@ -23,94 +24,103 @@ class ToDoList extends React.Component{
     }
 
     handleSubmit(e) {
-        let newList = this.state.list;
+        let newList = this.state.list
         
         newInput = {
             value: newInput,
             finish: false
         }
-        newInput.value ? newList.push(newInput) : alert('GG');
+        newInput.value ? newList.push(newInput) : alert('GG')
         
         this.setState({
             list: newList
-        });
+        })
         
-        this.handleClear();
+        this.handleClear()
       }
       
     handleClear() {
-        document.getElementById('myInput').value = null;
-        newInput = null;
+        document.getElementById('myInput').value = null
+        newInput = null
     }
     
     handleFinish(e) {
-        let order = e.target.parentElement.getAttribute('order');
-        let newList = this.state.list;
-        newList[order].finish = true;
+        let order = e.target.parentElement.getAttribute('order')
+        let newList = this.state.list
+        newList[order].finish = true
         
         this.setState({
             list: newList
-        });
+        })
     }
     
     handleDelete(e) {
-        let order = e.target.parentElement.getAttribute('order');
-        let newList = this.state.list;
-        newList.splice(order, 1);
+        let order = e.target.parentElement.getAttribute('order')
+        let newList = this.state.list
+        newList.splice(order, 1)
         
         this.setState({
             list: newList
-        });
+        })
     }
     
     render() {
         const MapValue = () => {
             return this.state.list.map(
-            (list, i) => (
-                <li order={i} key={i}>
-                
-                {list.finish ? <strike>{list.value}</strike> : list.value}
-                
-                <button 
-                    type='button' 
-                    onClick={this.handleFinish}>
-                    完成
-                </button>
-                
-                <button 
-                    type='button'
-                    onClick={this.handleDelete}>
-                    刪除
-                </button>
-                </li>
+                (list, i) => (
+                    <li key={i}>
+                    
+                    {list.finish ? <strike>{list.value}</strike> : list.value}
+                        <div className="btnBox" order={i}>
+                            <button 
+                                className='btn_finish'
+                                type='button' 
+                                onClick={this.handleFinish}>
+                                完成
+                            </button>
+                            
+                            <button 
+                                className='btn_delete'
+                                type='button'
+                                onClick={this.handleDelete}>
+                                刪除
+                            </button>
+                        </div>
+                    </li>
+                )
             )
-            );
         }
         
         return (
-            <div>
+            <div className='container'>
                 <h1>TodoList :</h1>
-                <input 
-                    type='text'
-                    name='todo'
-                    id='myInput'
-                    onChange={this.handleChange}
-                />
-                <button 
-                    type='button' 
-                    onClick={this.handleSubmit}>
-                    確定
-                </button>
-                <button 
-                    type='button' 
-                    onClick={this.handleClear}>
-                    取消
-                </button>
-                
-                <p>List :</p>
-                <ul>
-                    <MapValue />
-                </ul>
+                <article>
+                    <div>
+                        <input 
+                            type='text'
+                            name='todo'
+                            id='myInput'
+                            onChange={this.handleChange}
+                        />
+                        <button 
+                            className='btn_submit'
+                            type='button' 
+                            onClick={this.handleSubmit}>
+                            確定
+                        </button>
+                        <button 
+                            className='btn_cancel'
+                            type='button' 
+                            onClick={this.handleClear}>
+                            取消
+                        </button>
+
+                        <h2>List :</h2>
+                        <ul>
+                            <MapValue />
+                        </ul>
+                    </div>
+                </article>
             </div>
         )
     }
